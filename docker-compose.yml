@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  geo_dev:
+    image: geo_analysis_conda
+    build: .
+    volumes: 
+     #this mounts local folder to docker container
+      - .:/root
+    working_dir: /root 
+    tty: true
+    stdin_open: true

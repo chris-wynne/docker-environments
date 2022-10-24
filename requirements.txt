@@ -1,0 +1,4 @@
+#conda forge requirments
+folium=0.13.0
+ipykernel=6.16.1 
+pandas=1.4.4
