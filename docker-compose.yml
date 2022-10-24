@@ -1,8 +1,9 @@
 version: '3.4'
 
 services:
-  geo_dev:
-    image: geo_analysis_conda
+  conda_dev:
+    container_name: conda_dev
+    image: miniconda_env
     build: .
     volumes: 
      #this mounts local folder to docker container
