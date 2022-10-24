@@ -24,5 +24,10 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
-README.md
 **/.vscode-server
+README.md
+README
+docker-compose.yml
+Dockerfile
+requirments.txt
+.gitconfig

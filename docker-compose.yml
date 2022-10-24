@@ -6,7 +6,7 @@ services:
     build: .
     volumes: 
      #this mounts local folder to docker container
-      - .:/root
+      - .:/root/app
     working_dir: /root 
     tty: true
     stdin_open: true
