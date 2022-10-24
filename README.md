@@ -39,7 +39,7 @@ Docker VSCode Python Tutorial // Run your App in a Container : https://www.youtu
 
 This will let you set up a simple container for development, you code and install packages from within the container. \
 \
-In bash enter the below commands. You can replace the image "python" with another from docker hub. \
+In bash enter the below commands. You can replace the image "python" with another from docker hub.
 
 1. Download base docker image: "docker pull python"
 2. Start running a container in the background: "docker run -d -i --name pythondevs python bash"
@@ -54,7 +54,7 @@ To remove image enter: "docker rm python".
 
 ### Docker compose
 
-This uses the docker files located within this directory to set up an environment. This allows you options to customize set up, copy local files and mount local drives.\
+This uses the docker files located within this directory to set up an environment. This allows you options to customize set up, copy local files and mount local drives.
 
 1. To run the prebuilt compose file simply type in bash: "docker compose run". This may take a minute.
 2. To generate a container called "dev_con" type into bash: "docker compose up".
