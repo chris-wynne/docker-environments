@@ -4,11 +4,11 @@ Docker set up guides for containerised development.
 
 ## Why use docker for containerised development?
 
-Docker allows you to containerise develpment for repeatability. This lets users set up, share and run environments without running into OS issues. You also don't need to install unnecessary software.
+Docker allows you to containerise development for repeatability. This lets users set up, share and run environments without running into OS issues. You also don't need to install unnecessary software.
 
-## Software requirments
+## Software requirements
 
-These guides are set up using the below recomneded software & extensions.
+These guides are set up using the below recommended software & extensions.
 
 ### Docker desktop
 
@@ -46,7 +46,7 @@ In bash enter the below commands. You can replace the image "python" with anothe
 3. Check the container is running: "docker ps"
 \
 From here click the blue icon in the bottom left of VS code. \
-Select "Attach to runing container". \
+Select "Attach to running container". \
 This should open up a new vs code window, this will allow you to develop within the container. \
 To stop container enter: "docker stop pythondevs". \
 To remove container enter: "docker rm pythondevs". \
@@ -57,7 +57,7 @@ To remove image enter: "docker rm python".
 This uses the docker files located within this directory to set up an environment. This allows you options to customize set up, copy local files and mount local drives.
 
 1. To run the prebuilt compose file simply type in bash: "docker compose run". This may take a minute.
-2. To generate a container called "dev_con" type into bash: "docker compose up".
+2. To generate a container called "dev_con" type into bash: "docker-compose up -d".
 3. Now open remote window.
 \
 To find the container, in powershell type "docker ps". \
