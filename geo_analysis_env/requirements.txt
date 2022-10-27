@@ -1,17 +1,12 @@
-#conda requirments
-numpy=1.23
-folium=0.13
-ipykernel=6.16
-jupyter= 1.0
-openssl=3.0
-openpyxl=3.0
-pandas=1.5
-geopandas=0.12
-shapely=1.8
-graph-tool=2.45
-scipy=1.9
-odfpy=1.4
-matplotlib=3.6
-seaborn=0.12
-plotly=5.10
-xlsxwriter=3.0
+python=3.10
+folium
+ipykernel
+jupyter
+pandas
+matplotlib
+seaborn
+plotly
+geopandas
+shapely
+graph-tool
+scipy
