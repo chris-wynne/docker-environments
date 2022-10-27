@@ -1,6 +1,6 @@
 # Docker Guides
 
-Docker set up guides for containerised development.
+Docker set up guides for containerised development. Each folder contains set up for a specific development environment.
 
 ## Why use docker for containerised development?
 
@@ -8,7 +8,7 @@ Docker allows you to containerise development for repeatability. This lets users
 
 ## Software requirements
 
-These guides are set up using the below recommended software & extensions.
+The README guides featured in these folders are set up using the below recommended software & extensions.
 
 ### Docker desktop
 
@@ -28,12 +28,12 @@ Remote - WSL \
 Dev Container \
 Docker
 
-### Helpful guides for set up
+### Helpful video guides for set up
 
 Create a Python Dev Environment with Docker and VS Code | NetDevOps and PyATS part 1: https://www.youtube.com/watch?v=k8H0KCtsTR8&t=218s \
 Docker VSCode Python Tutorial // Run your App in a Container : https://www.youtube.com/watch?v=jtBVppyfDbE
 
-## Set up guides
+## Basic Set up guide
 
 ### Running vscode within a basic container
 
@@ -44,21 +44,14 @@ In bash enter the below commands. You can replace the image "python" with anothe
 1. Download base docker image: "docker pull python"
 2. Start running a container in the background: "docker run -d -i --name pythondevs python bash"
 3. Check the container is running: "docker ps"
-\
-From here click the blue icon in the bottom left of VS code. \
-Select "Attach to running container". \
-This should open up a new vs code window, this will allow you to develop within the container. \
-To stop container enter: "docker stop pythondevs". \
-To remove container enter: "docker rm pythondevs". \
-To remove image enter: "docker rm python".
+4. From here click the blue icon in the bottom left of VS code. Select "Attach to running container".
 
-### Docker compose
+You should now have a new vs code window, this will allow you to develop within the container. \
 
-This uses the docker files located within this directory to set up an environment. This allows you options to customize set up, copy local files and mount local drives.
+#### Close down
 
-1. To run the prebuilt compose file simply type in bash: "docker compose run". This may take a minute.
-2. To generate a container called "dev_con" type into bash: "docker-compose up -d".
-3. Now open remote window.
-\
-To find the container, in powershell type "docker ps". \
-To stop container, in powershell type "docker stop containername"
+To close down and remove containers & images enter the below commands into bash:
+
+1. To stop container enter: "docker stop pythondevs". \
+2. To remove container enter: "docker rm pythondevs". \
+3. To remove image enter: "docker rm python".
