@@ -48,7 +48,7 @@ In bash enter the below commands. You can replace the image "python" with anothe
 
 You should now have a new vs code window, this will allow you to develop within the container. \
 
-#### Close down
+### Close down
 
 To close down and remove containers & images enter the below commands into bash:
 
