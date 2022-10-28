@@ -19,6 +19,6 @@ To ignore files add them to the .dockerignore file.
 
 To close down and remove containers & images enter the below commands into bash:
 
-1. To stop container enter: "docker stop pythondevs". \
-2. To remove container enter: "docker rm pythondevs". \
-3. To remove image enter: "docker rm python".
+1. To stop container enter: "docker stop conda_dev". \
+2. To remove container enter: "docker rm conda_dev". \
+3. To remove image enter: "docker rmi miniconda_env".
