@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  geoconda_dev:
+    container_name: geoconda_dev
+    image: geo_miniconda_env
+    build: .
+    volumes: 
+     #this mounts local folder to docker container
+      - .:/root/app
+    working_dir: /root 
+    tty: true
+    stdin_open: true

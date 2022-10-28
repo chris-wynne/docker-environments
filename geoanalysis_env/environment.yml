@@ -1,0 +1,16 @@
+name: myenv
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - folium
+  - ipykernel
+  - jupyter
+  - pandas
+  - matplotlib
+  - seaborn
+  - plotly
+  - geopandas
+  - shapely
+  - graph-tool
+  - scipy
