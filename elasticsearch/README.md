@@ -9,7 +9,7 @@ Use this project to deploy the core components via Docker containers:
 * document web server
 * Apache Zeppelin
 
-FSCrawler REST is enabled, but the standard file system crawler functionality is expected to be used in this version, for smaller corpus sets. If higher volumes are required, then the more scaleable Airflow/Spark/REST solution should be used.
+FSCrawler REST is enabled, but the standard file system crawler functionality is expected to be used in this version, for smaller corpus sets. If higher volumes are required, look at passing a df to Elastic instead.
 
 ## Pre-requisites
 
