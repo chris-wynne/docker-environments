@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  selenium_env:
+    container_name: selenium_dev
+    image: selenium_env
+    build: .
+    volumes: 
+     #this mounts local folder to docker container
+      - .:/root/app
+    working_dir: /root 
+    tty: true
+    stdin_open: true
