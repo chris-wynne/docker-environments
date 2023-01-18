@@ -42,7 +42,7 @@ This will let you set up a simple container for development, you code and instal
 In bash enter the below commands. You can replace the image "python" with another from docker hub.
 
 1. Download base docker image: "docker pull python"
-2. Start running a container in the background: "docker run -d -i --name pythondevs python bash"
+2. Start running a container in the background: "docker run -d -i --name pythondevs"
 3. Check the container is running: "docker ps"
 4. From here click the blue icon in the bottom left of VS code. Select "Attach to running container".
 
