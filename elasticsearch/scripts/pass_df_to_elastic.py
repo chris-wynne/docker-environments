@@ -1,22 +1,30 @@
 import pandas as pd
-import elasticsearch
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
-es_client = Elasticsearch(http_compress=True, http_auth=('elastic', 'harp'))
-import json
 
-df = pd.read_csv('input_data') #change to desired processed data source
+indexname = 'name_of_your_index'
+
+es_client = Elasticsearch(
+    "http://localhost:9200",
+    http_auth=("elastic", "harp")
+)
+
+#es_client.info() #test connection
+
+#delete existing index
+es_client.indices.delete(index=indexname, ignore=[400, 404])
+
+df = pd.read_pickle("datasource.pkl") #change to desired processed data source
 
 def filterKeys(document):
-    use_these_keys = ['uuid', 'id', 'file', 'content', 'extension', 'metadata'] #change this to match desired df values
+    use_these_keys = ['uuid', 'id', 'path', 'content', 'extension'] #change this to match desired df values
     return {key: document[key] for key in use_these_keys }
 
 def doc_generator(df):
     df_iter = df.iterrows()
     for index, document in df_iter:
         yield {
-                "_index": f"{document['uuid']}",
-                "_type": f"{document['extension']}",
+                "_index": "conf",
                 "_id" : f"{document['id']}", #elastic unique id
                 "_source": filterKeys(document),
             }
