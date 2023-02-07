@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  pym3_conda_dev:
+    container_name: pym3_conda_dev
+    image: miniconda_env
+    build: .
+    volumes: 
+     #this mounts local folder to docker container
+      - .:/root/app
+    working_dir: /root 
+    tty: true
+    stdin_open: true
