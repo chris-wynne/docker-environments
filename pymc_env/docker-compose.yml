@@ -1,9 +1,9 @@
 version: '3.4'
 
 services:
-  pym3_conda_dev:
-    container_name: pym3_conda_dev
-    image: miniconda_env
+  pymc_conda_dev:
+    container_name: pymc_dev
+    image: pymc_env
     build: .
     volumes: 
      #this mounts local folder to docker container

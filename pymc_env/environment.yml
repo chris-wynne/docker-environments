@@ -3,12 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
+  - pymc
   - ipykernel
   - jupyter
   - pandas
-  - matplotlib
-  - seaborn
-  - plotly
-  - shapely
-  - scipy
-  - pymc3

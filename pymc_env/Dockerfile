@@ -1,4 +1,6 @@
-FROM continuumio/miniconda3
+FROM condaforge/miniforge3
+
+WORKDIR /app
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -6,13 +8,9 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /app
-
-RUN apt-get update
-RUN apt-get install ca-certificates
-
-#turns ssl off, this method is not secure
+#turns ssl off
 RUN conda config --set ssl_verify false
+
 
 # Create the environment:
 COPY environment.yml .
