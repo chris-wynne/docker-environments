@@ -55,3 +55,9 @@ To close down and remove containers & images enter the below commands into bash:
 1. To stop container enter: "docker stop pythondevs". \
 2. To remove container enter: "docker rm pythondevs". \
 3. To remove image enter: "docker rm python".
+
+### SSL Issues
+
+If having issues with SSL certificates when downloading packages you may need to add the below to your docker image.
+
+docker run -v /host/path/to/certs:/container/path/to/certs -d IMAGE_ID "update-ca-certificates"
