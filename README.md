@@ -24,20 +24,26 @@ https://gitforwindows.org/
 
 ### VS code extensions
 
-Remote - WSL \
-Dev Container \
+Remote - SSH \
+WSL \
+Dev Containers \
 Docker
 
 ### Helpful video guides for set up
 
-Create a Python Dev Environment with Docker and VS Code | NetDevOps and PyATS part 1: https://www.youtube.com/watch?v=k8H0KCtsTR8&t=218s \
-Docker VSCode Python Tutorial // Run your App in a Container : https://www.youtube.com/watch?v=jtBVppyfDbE
+Create a Python Dev Environment with Docker and VS Code | NetDevOps and PyATS part 1:
+
+https://www.youtube.com/watch?v=k8H0KCtsTR8&t=218s 
+
+Docker VSCode Python Tutorial // Run your App in a Container :
+
+https://www.youtube.com/watch?v=jtBVppyfDbE
 
 ## Basic Set up guide
 
 ### Running vscode within a basic container
 
-This will let you set up a simple container for development, you code and install packages from within the container. \
+This will let you set up a simple container for development all from the command line, you code and install packages from within the container. \
 \
 In bash enter the below commands. You can replace the image "python" with another from docker hub.
 
@@ -46,18 +52,29 @@ In bash enter the below commands. You can replace the image "python" with anothe
 3. Check the container is running: "docker ps"
 4. From here click the blue icon in the bottom left of VS code. Select "Attach to running container".
 
-You should now have a new vs code window, this will allow you to develop within the container. \
+You should now have a new vs code window, this will allow you to develop within the container.
 
 ### Close down
 
 To close down and remove containers & images enter the below commands into bash:
 
-1. To stop container enter: "docker stop pythondevs". \
-2. To remove container enter: "docker rm pythondevs". \
+1. To stop container enter: "docker stop pythondevs".
+2. To remove container enter: "docker rm pythondevs".
 3. To remove image enter: "docker rm python".
 
 ### SSL Issues
 
-If having issues with SSL certificates when downloading packages you may need to add the below to your docker image.
+If you are having issues with SSL certificates, due to company IT restrictions, you will need to add the below code to your docker image.
 
-docker run -v /host/path/to/certs:/container/path/to/certs -d IMAGE_ID "update-ca-certificates"
+```(docker)
+#add SSL certs (remove this if not an ARUP user)
+#---------------------------------------------------------
+COPY ./build/*.crt /etc/pki/ca-trust/source/anchors/
+RUN update-ca-trust 
+#---------------------------------------------------------
+
+```
+
+This copys a folder called "build" in your root folder directory. You will need to create this folder and paste in your crt files. Check your companies intranet for SSL issues to find specific crt files.
+
+Alternatively, check your "programme data" folder in the C drive for them.
