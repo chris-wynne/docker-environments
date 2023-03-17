@@ -16,18 +16,11 @@ def es_page_splitter(df, content_column, extension_column, split_no):
     To do:
         replace group by strings with extension_column
     """
-    #get columns for grouping
-    #df_columns = list(df)
-    #df_columns = [col for col in df_columns if col != content_column] #get all columns except content, used for grouping
-    #columns_string = ', '.join(f'"{w}"' for w in df_columns)
-    #print(columns_string)
     
     #keep only document files types
-    ext_list = ['pdf', 'docx', 'doc', 'dot', 'dotm', 'dotx', 'html', 'htm', 'odt', 'pptx', 'pptm', 'ppt', 'xps', 'potm', 'poyt', 'ppsx', 'ppsm', 'pps', 'rtf', 'wps' ] #these are the file types we care about
+    ext_list = ['pdf', 'docx', 'doc', 'dot', 'dotm', 'dotx', 'html', 'htm', 'odt', 'pptx', 'pptm', 'ppt', 'xps', 'potm', 'poyt', 'ppsx', 'ppsm', 'pps', 'rtf', 'wps' ] #check your file type is included
     df = df[df[extension_column].isin(ext_list)].copy()
     
-    # #clean content
-    # df[content_column] = df[content_column].replace('\n','', regex=True)
     
     #explode and group by
     df[content_column] = df[content_column].str.split(" ")
