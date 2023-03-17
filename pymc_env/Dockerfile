@@ -9,8 +9,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 #turns ssl off
-RUN conda config --set ssl_verify false
-
+#RUN conda config --set ssl_verify false
 
 # Create the environment:
 COPY environment.yml .
