@@ -1,6 +1,6 @@
 # Docker Guides
 
-Docker set up guides for containerised development. Each folder contains set up for a specific development environment.
+Docker set up guides for containerised development. Each folder contains set up for a specific development environment or tool.
 
 ## Why use docker for containerised development?
 
