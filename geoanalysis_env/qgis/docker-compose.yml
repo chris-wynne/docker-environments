@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      #this defines the service to run
+      dockerfile: ./app-dev-tool.Dockerfile
+    volumes:
+    #this mounts local folder to docker container
+      - .:/app
+    tty: true
+    stdin_open: true
