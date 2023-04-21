@@ -6,6 +6,7 @@ services:
       context: .
       #this defines the service to run
       dockerfile: ./app-dev-tool.Dockerfile
+    image: qgis_dev   # Add your desired image name here
     volumes:
     #this mounts local folder to docker container
       - .:/app
