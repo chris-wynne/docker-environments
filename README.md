@@ -4,77 +4,62 @@ Docker set up guides for containerised development. Each folder contains set up 
 
 ## Why use docker for containerised development?
 
-Docker allows you to containerise development for repeatability. This lets users set up, share and run environments without running into OS issues. You also don't need to install unnecessary software.
+1. **Consistent environment**: Docker containers help maintain a consistent environment across different stages of development, testing, and production. This can help reduce the "it works on my machine" issue, where code runs well on a developer's machine but fails on another system due to differences in configurations, dependencies, or system libraries.
+
+2. **Isolation**: Docker containers isolate your application and its dependencies, which helps keep your host system clean and reduces the risk of conflicts between different projects or components.
+
+3. **Reproducibility**: By defining your application and its dependencies using a Dockerfile, you can easily recreate the same environment for different team members, continuous integration (CI) pipelines, or even for deploying the application. This simplifies the onboarding process for new team members and makes it easier to manage dependencies.
+
+4. **Portability**: Docker containers can run on any system with Docker installed, regardless of the underlying operating system. This makes it easy to share your development environment with others and deploy your application to different platforms.
+
+5. **Scalability**: Docker makes it easier to manage and scale applications by using container orchestration tools like Kubernetes or Docker Swarm.
 
 ## Software requirements
 
-The README guides featured in these folders are set up using the below recommended software & extensions.
+1. Docker Desktop: https://www.docker.com/products/docker-desktop/ 
+2. WSL2: https://learn.microsoft.com/en-us/windows/wsl/install
+3. Git: https://gitforwindows.org/
+4. VS Code extensions: Remote - SSH, WSL, Dev Containers, Docker
 
-### Docker desktop
+## Using Docker as a development environment
 
-Install docker desktop: "https://www.docker.com/products/docker-desktop/"
+### Set up
 
-### Install WSL2
+1. Build docker file
 
-Guide: "https://learn.microsoft.com/en-us/windows/wsl/install"
-
-### Install Git
-
-https://gitforwindows.org/
-
-### VS code extensions
-
-Remote - SSH \
-WSL \
-Dev Containers \
-Docker
-
-### Helpful video guides for set up
-
-Create a Python Dev Environment with Docker and VS Code | NetDevOps and PyATS part 1:
-
-https://www.youtube.com/watch?v=k8H0KCtsTR8&t=218s 
-
-Docker VSCode Python Tutorial // Run your App in a Container :
-
-https://www.youtube.com/watch?v=jtBVppyfDbE
-
-## Basic Set up guide
-
-### Running vscode within a basic container
-
-This will let you set up a simple container for development all from the command line, you code and install packages from within the container. \
-\
-In bash enter the below commands. You can replace the image "python" with another from docker hub.
-
-1. Download base docker image: "docker pull python"
-2. Start running a container in the background: "docker run -d -i --name pythondevs"
-3. Check the container is running: "docker ps"
-4. From here click the blue icon in the bottom left of VS code. Select "Attach to running container".
-
-You should now have a new vs code window, this will allow you to develop within the container.
-
-### Close down
-
-To close down and remove containers & images enter the below commands into bash:
-
-1. To stop container enter: "docker stop pythondevs".
-2. To remove container enter: "docker rm pythondevs".
-3. To remove image enter: "docker rm python".
-
-### SSL Issues
-
-If you are having issues with SSL certificates, due to company IT restrictions, you will need to add the below code to your docker image.
-
-```(docker)
-#add SSL certs (remove this if not an ARUP user)
-#---------------------------------------------------------
-COPY ./build/*.crt /etc/pki/ca-trust/source/anchors/
-RUN update-ca-trust 
-#---------------------------------------------------------
-
+```(bash)
+docker-compose build
 ```
 
-This copys a folder called "build" in your root folder directory. You will need to create this folder and paste in your crt files. Check your companies intranet for SSL issues to find specific crt files.
+1. Run a detached container
 
-Alternatively, check your "programme data" folder in the C drive for them.
+```(bash)
+docker-compose up -d
+```
+
+3. Check the container is running
+
+```(bash)
+docker ps
+```
+### Connect to the container
+
+#### Option 1: VS Code
+
+Click the blue icon in the bottom left of VS Code. Select "Attach to Running Container".
+
+#### Option 2: Interactive bash session
+
+```(bash)
+docker-compose run --rm app bash
+```
+
+Replace bash with sh if your container uses sh instead.
+
+### Close Down
+
+To stop and remove the container, enter
+
+```(bash)
+docker compose down
+```
