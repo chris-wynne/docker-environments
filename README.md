@@ -31,7 +31,7 @@ Docker set up guides for containerised development. Each folder contains set up 
 docker-compose build
 ```
 
-1. Run a detached container
+2. Run a detached container
 
 ```(bash)
 docker-compose up -d
