@@ -1,7 +1,7 @@
 pip==22.3
 folderstats==0.4.1
 ipykernel==6.15.1
-ipython==8.4.0
+ipython==8.10
 jedi==0.18.1
 jupyter-client==7.3.4
 matplotlib==3.5.2
