@@ -134,3 +134,7 @@ dmypy.json
 
 #git
 .gitconfig
+
+#certs
+cisco.crt
+curl-ca-bundle.crt
