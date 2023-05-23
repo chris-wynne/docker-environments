@@ -1,0 +1,52 @@
+name: arup_nlp_prog
+channels:
+  - huggingface
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  # general
+  - python=3.10
+  - requests=2.27.1 # new on 15.11.22, latest version of requests which allows the not setting verification hack (os.environ['CURL_CA_BUNDLE']="")
+  - ipykernel
+  - ipython_genutils
+  - jupyter
+  - pip
+  - pandas
+  - openpyxl
+  - pyyaml
+  - xlsxwriter
+  - openpyxl
+  - pyarrow # new
+  # plotting
+  - matplotlib
+  - seaborn
+  - plotly
+  - dash
+  - dtale
+  # ml
+  - scikit-learn
+  - umap-learn
+  - hdbscan
+  # network graphs
+  - networkx # new, using version 2.6.3 as newer version is problematic
+  - pyvis # 30.11.22, new
+  # nlp
+  - tika
+  - pdfplumber # for reading pdf files  
+  - tabula-py # for reading tables from pdf files
+  - python-docx # for reading docx files
+  - elasticsearch
+  - nltk
+  - vadersentiment
+  - spacy
+  - spacy-model-en_core_web_sm
+  - spacy-model-en_core_web_md
+  - spacy-model-en_core_web_lg
+  - sentence-transformers # will install transformers as a dependency
+  - datasets # new
+  - wordcloud
+  - pip:
+    - elastic-enterprise-search
+    - bertopic
+    - streamlit # The conda installation of this doesn't work
