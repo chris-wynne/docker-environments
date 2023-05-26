@@ -2,17 +2,46 @@
 version: '3.8'
 
 services:
+#Database service
   db:
-    build: .
+    build:
+      context: .
+      dockerfile: ./geo-postgres.Dockerfile
     container_name: geospatial-postgres
     environment:
-      POSTGRES_USER: geospatial
-      POSTGRES_PASSWORD: geospatial_pass
-      POSTGRES_DB: geospatial_db
+      POSTGRES_USER: db-admin
+      POSTGRES_PASSWORD: admin-pass
+      POSTGRES_DB: local_postgres_db
     ports:
       - "5432:5432"
     volumes:
       - geospatial-data:/var/lib/postgresql/data
 
+#Dev environment
+  app:
+    build:
+      context: .
+      dockerfile: ./app-dev-tool.Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./datafiles:/app/datafiles
+    depends_on:
+      - db  # this service depends on the db service
+    tty: true
+    stdin_open: true
+
+#Portainer for monitoring
+  portainer:
+    image: portainer/portainer-ce
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+# Named Volumes
 volumes:
   geospatial-data:
+  portainer_data:
