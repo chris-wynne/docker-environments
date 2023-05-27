@@ -1,0 +1,30 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+#Dev environment
+  app:
+    build:
+      context: .
+      dockerfile: ./app-dev-tool.Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./datafiles:/app/datafiles
+      - ./scripts:/app/scripts
+    tty: true
+    stdin_open: true
+
+#Portainer for monitoring
+  portainer:
+    image: portainer/portainer-ce
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+# Named Volumes
+volumes:
+  portainer_data:
