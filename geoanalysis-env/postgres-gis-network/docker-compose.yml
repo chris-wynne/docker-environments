@@ -9,8 +9,8 @@ services:
       dockerfile: ./geo-postgres.Dockerfile
     container_name: geospatial-postgres
     environment:
-      POSTGRES_USER: db-admin
-      POSTGRES_PASSWORD: admin-pass
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: local_postgres_db
     ports:
       - "5432:5432"

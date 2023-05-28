@@ -1,0 +1,2 @@
+#Don't store passwords on GIT
+.env
