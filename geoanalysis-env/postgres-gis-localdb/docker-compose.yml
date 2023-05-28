@@ -1,0 +1,38 @@
+# docker-compose-db.yml
+version: '3.8'
+services:
+#Local database
+  localdb:
+    build:
+      context: .
+      dockerfile: ./localdb.Dockerfile
+    container_name: localdb_container
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: local_postgres_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - local-db-data:/var/lib/postgresql/data
+    networks:
+      - local_db_network
+
+#Portainer for monitoring
+  portainer:
+    image: portainer/portainer-ce
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+
+networks:
+  local_db_network:
+
+# Named Volumes
+volumes:
+  local-db-data:
+  portainer_data:
