@@ -65,6 +65,10 @@ With this setup, your-service will be able to communicate with the database in t
 
 # Additional Information
 
+## Data Volume
+
+The PostgreSQL data is persisted using a Docker volume named local-db-data.
+
 ## Monitoring with Portainer
 
 This setup also includes Portainer for monitoring your Docker environment. Once the containers are running, you can access the Portainer UI at http://localhost:9000.
