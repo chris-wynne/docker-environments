@@ -8,9 +8,10 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 env_path = os.path.join(script_dir, '../.env')
 load_dotenv(env_path)   # take environment variables from .env.
 
+user = os.getenv("POSTGRES_USER")
+password = os.getenv("POSTGRES_PASSWORD")
+
 def get_db_connection(dbname, host, port):
-    user = os.getenv("POSTGRES_USER")
-    password = os.getenv("POSTGRES_PASSWORD")
 
     try:
         # create a new database connection by calling the connect() function
