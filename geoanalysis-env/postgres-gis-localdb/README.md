@@ -76,3 +76,27 @@ This setup also includes Portainer for monitoring your Docker environment. Once 
 ## initdb-postgis.sh
 
 This script is run automatically after the database is initialized but before it is started. The script uses psql to connect to the database and runs SQL commands to create the PostGIS and PostGIS_topology extensions if they do not already exist.
+
+## Backing up your PostgresSQL Database in Docker
+
+This section describes how you can create a backup of your PostgreSQL database running inside a Docker container using the pg_dump tool.
+
+1. Run the following command in your terminal to display a list of all running Docker containers. Note the ID of your Docker container running PostgreSQL. 
+
+```bash
+docker ps
+```
+
+2. Next, execute the pg_dump command in the Docker container to create a backup of your PostgreSQL database. Make sure to replace YOUR_CONTAINER_ID_OR_NAME with your actual Docker container ID or name, and YOUR_DATABASE_NAME with the name of your database. This command will create a backup of your PostgreSQL database and write it to backup.sql on your local machine.
+
+```bash
+docker exec YOUR_CONTAINER_ID_OR_NAME pg_dump -U postgres YOUR_DATABASE_NAME > backup.sql
+```
+
+3. If your PostgreSQL database requires a password, you can supply it by using the PGPASSWORD environment variable as follows:
+
+```bash
+docker exec -e PGPASSWORD=your_password YOUR_CONTAINER_ID_OR_NAME pg_dump -U postgres YOUR_DATABASE_NAME > backup.sql
+```
+
+4. Finally, verify that the backup was successful. You can do this by viewing the contents of the backup.sql file. Use any text editor to open the file, or you can even try to restore it into a new database to check its validity.
