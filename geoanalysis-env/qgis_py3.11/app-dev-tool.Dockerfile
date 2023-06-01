@@ -1,4 +1,4 @@
-# Start with Ubuntu 23.04
+# Start with Ubuntu 22.04
 FROM ubuntu:22.04
 
 # Set the working directory
