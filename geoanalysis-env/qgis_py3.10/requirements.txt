@@ -1,0 +1,17 @@
+dask
+dask-geopandas
+Fiona
+folium
+ipython-genutils
+jupyter-core
+openpyxl
+pandas
+plotly
+pytest
+requests-mock
+scikit-learn
+scipy
+shapely
+SQLAlchemy
+streamlit
+tqdm
