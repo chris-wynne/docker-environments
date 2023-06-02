@@ -19,9 +19,6 @@ COPY ./build/*.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 # ---------------------------------------------------------
 
-# Install Python 3 and pip
-RUN apt-get install -y python3 python3-pip
-
 # Install QGIS dependencies
 RUN apt-get update && \
     apt-get install -y qgis python3-qgis qgis-plugin-grass && \

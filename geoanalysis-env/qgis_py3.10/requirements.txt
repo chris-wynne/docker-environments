@@ -2,6 +2,7 @@ dask
 dask-geopandas
 Fiona
 folium
+geopandas
 ipython-genutils
 jupyter-core
 openpyxl
