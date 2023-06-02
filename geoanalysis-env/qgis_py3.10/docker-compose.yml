@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      #this defines the service to run
+      dockerfile: ./app-dev-tool.Dockerfile
+    image: qgis_dev   # Add your desired image name here
+    volumes:
+    #this mounts local folder to docker container
+      - ./datafiles:/app/datafiles
+      - ./qgis:/app/qgis
+      - ./tests:/app/tests
+      - ./scripts:/app/scripts
+      - ./requirements.txt:/app/requirements.txt
+      - ./Docker-README.md:/app/Docker-README.md
+      - ./README.md:/app/README.mdpp
+    tty: true
+    stdin_open: true
